@@ -1,0 +1,24 @@
+{% load static %}
+
+{% block content %}
+  {% for i in paso_ranking %}
+    <table class="table table-bordered" style="color: white;">
+      <thead>
+        <tr style="color: black; background-color: white;">
+          <th class="text-center">Ranking</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th style="background-color: green;">{{ i.mejor }}</th>
+        </tr>
+        <tr style="background-color: blue;" class="text-center">
+          <th>{{ i.actual }}</th>
+        </tr>
+        <tr style="background-color: red;" class="text-center">
+          <th>{{ i.peor }}</th>
+        </tr>
+      </tbody>
+    </table>
+  {% endfor %}
+{% endblock %}

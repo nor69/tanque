@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <table class="table table-responsive">
+    <thead class="bg-dark tabla_por_abajo">
+      <tr>
+        <th>TANQUE</th>
+        <th>TIPO</th>
+        <th>PAIS</th>
+        <th>NIVEL</th>
+        <th>DESTRUIDOS</th>
+        <th>DAÑO CAUSADO</th>
+        <th>DAÑO BLOQUEADO</th>
+        <th>DAÑO DETECTADO</th>
+        <th>DAÑO ATURDIMIENTO</th>
+      </tr>
+    </thead>
+    <tbody class="bg-warning">
+      {% for i in repeticiones %}
+        <tr>
+          <td {% if i.premium %} class="bg-success" {% endif %}> <a style="color: black;" href="{% url 'Video' i.id %}">{{ i.nombre }}</a></td>
+          <td>{{ i.tipo }}</td>
+          <td>{{ i.pais }}</td>
+          <td>{{ i.nivel }}</td>
+          <td>{{ i.destruidos }}</td>
+          <td>{{ i.causado }}</td>
+          <td>{{ i.bloqueado }}</td>
+          <td>{{ i.detectado }}</td>
+          <td>{{ i.aturdimiento }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,72 @@
+td,
+th {
+    text-align: center;
+    font-weight: bold;
+    outline: 1px solid yellow;
+}
+
+.barra_por_abajo {
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+}
+
+.tabla_por_abajo {
+    position: sticky;
+    top: 56px;
+}
+
+thead {
+    color: white;
+}
+
+th a {
+    text-decoration: none;
+    color: white;
+}
+
+.formulario_etiqueta {
+    color: white;
+    margin-bottom: 2px;
+    margin-top: 5px;
+}
+
+.formulario_cuerpo {
+    margin-bottom: 15px;
+}
+
+.formulario_boton {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.principal_contenedor_imagen {
+    background-color: black;
+    height: 91%;
+}
+
+.principal_imagen {
+    display: block;
+    width: 30%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.tabla_ranking {
+    display: inline-block;
+    width: 100px;
+    margin-top: 75px;
+    margin-left: 450px;
+}
+
+.tabla_tanques {
+    display: inline-block;
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+
+.tabla_win8 {
+    display: inline-block;
+    width: 100px;
+    margin-left: 40px;
+}

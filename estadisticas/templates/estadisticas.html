@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <table class="table table-responsive">
+    <thead class="bg-dark tabla_por_abajo">
+      <tr>
+        <th>NOMBRE</th>
+        <th>TIPO</th>
+        <th>PAIS</th>
+        <th>NIVEL</th>
+        <th>BATALLAS</th>
+        <th>VICTORIAS</th>
+        <th>EXPERIENCIA</th>
+        <th>SUBTOTAL</th>
+        <th>WIN8</th>
+        <th>TOTAL</th>
+      </tr>
+    </thead>
+    <tbody class="bg-warning">
+      {{ categoria }}
+      {% for i in estadisticas %}
+        
+          <tr {% if i.garaje %} class="bg-danger" {% endif %}>
+            <td {% if i.premium %} class="bg-success" {% endif %}>{{ i.nombre }}</td>
+            <td>{{ i.tipo }}</td>
+            <td>{{ i.pais }}</td>
+            <td>{{ i.nivel }}</td>
+            <td>{{ i.batallas }}</td>
+            <td>{{ i.victorias }}</td>
+            <td>{{ i.experiencia }}</td>
+            <td>{{ i.subtotal }}</td>
+            <td>{{ i.win8 }}</td>
+            <td class="bg-secondary">{{ i.total }}</td>
+          </tr>
+        
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

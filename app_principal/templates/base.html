@@ -1,0 +1,86 @@
+<html>
+  <head>
+    {% load static %}
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <link href="{% static 'css/principal.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary barra_por_abajo">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'Home' %}">Principal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/estadisticas/' %}active{% endif %}" href="{% url 'Estadisticas' %}">Estadisticas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/repeticiones/' %}active{% endif %}" href="{% url 'Repeticiones' %}">Repeticiones</a>
+            </li>
+            {% if request.path == '/estadisticas/' or request.path == '/repeticiones/' %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Filtrar por</a>
+                <ul class="dropdown-menu bg-primary">
+                  <li>
+                    <form action="" method="post" style="text-align: center;">
+                      {% csrf_token %}
+                      {% if request.path == '/estadisticas/' %}
+                        <div class="formulario_etiqueta">
+                          {{form_estadisticas.lista_uno.label}}
+                        </div>
+                        <div class="formulario_cuerpo">
+                          {{form_estadisticas.lista_uno}}
+                        </div>
+                        <div class="formulario_etiqueta">
+                          {{form_estadisticas.lista_dos.label}}
+                        </div>
+                        <div class="formulario_cuerpo">
+                          {{form_estadisticas.lista_dos}}
+                        </div>
+                        <div class="formulario_etiqueta">
+                          {{form_estadisticas.lista_tres.label}}
+                        </div>
+                        <div class="formulario_cuerpo">
+                          {{form_estadisticas.lista_tres}}
+                        </div>
+                        <input type="submit" value="Filtrar" class="btn btn-success formulario_boton" />
+                      {% endif %}
+                      {% if request.path == '/repeticiones/' %}
+                        <div class="formulario_etiqueta">
+                          {{form_repeticiones.lista_uno.label}}
+                        </div>
+                        <div class="formulario_cuerpo">
+                          {{form_repeticiones.lista_uno}}
+                        </div>
+                        <div class="formulario_etiqueta">
+                          {{form_repeticiones.lista_dos.label}}
+                        </div>
+                        <div class="formulario_cuerpo">
+                          {{form_repeticiones.lista_dos}}
+                        </div>
+                        <div class="formulario_etiqueta">
+                          {{form_repeticiones.lista_tres.label}}
+                        </div>
+                        <div class="formulario_cuerpo">
+                          {{form_repeticiones.lista_tres}}
+                        </div>
+                        <input type="submit" value="Filtrar" class="btn btn-success formulario_boton" />
+                      {% endif %}
+                    </form>
+                  </li>
+                </ul>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %}
+    
+    {% endblock  %}
+  </body>
+</html>

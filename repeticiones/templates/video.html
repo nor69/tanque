@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div style="text-align: center; margin-top: 20px;">
+    <video style="width: 70%" src="{{ paso_video.video.url }}" controls="True" autoplay></video>
+  </div>
+{% endblock %}

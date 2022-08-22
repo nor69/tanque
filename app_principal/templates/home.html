@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="principal_contenedor_imagen container-fluid">
+    
+    <img src="{% static 'img/logo.png' %}" class="principal_imagen" alt="" />
+    <div class="tabla_ranking" >
+      {% include 'widget_ranking.html' %}
+    </div>
+    <div class="tabla_tanques">
+      {% include 'widget_tanques.html' %}
+    </div>
+    <div class="tabla_win8">
+      {% include 'widget_win8.html' %}
+    </div>
+  </div>
+{% endblock %}
